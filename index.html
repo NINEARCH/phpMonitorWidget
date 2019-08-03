@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html class="font-weight-light nooverlay">
+<head>
+  <link href="css/font.css" rel="stylesheet" />
+  <title>NINEARCH</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Rajdhani&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@3.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  
+  <link href="css/custom.css" rel="stylesheet" />
+</head>
+
+<body class="darkbg">
+  <div id="app">
+    <v-app>
+      <v-img src="img//mojave-night.jpg">
+      <!-- toolbar -->
+      <v-toolbar dense fixed dark style="background-color: rgba(0,0,0,0.3)" class="elevation-0 " height="65px">
+        <v-toolbar-title>
+            <h1 class="display-2"> {{ data.name }} </h1>
+          
+        </v-toolbar-title>
+        <v-spacer></v-spacer>
+
+         <h1 class="display-2"> {{ time_ }} </h1>
+      </v-toolbar>
+      <!-- end toolbar -->
+
+
+      <!-- content -->
+      <v-content class="elevation-0 px-0 nobg" height="100vh">
+
+        <!-- widget -->
+        <v-container fluid class="pt-2">
+          <v-container fluid grid-list-lg v-if="rendered">
+            <v-layout wrap align-top justify-end row>
+
+              <v-flex xs12 sm12 md6 lg2 text-center>
+                <v-card dark min-height="300px" class="card_">
+                  <v-card-title class="darkbg">
+                    <h2 class="ble headline"><v-icon class="ble" large>check_box_outline_blank</v-icon> CPU</h2>
+                    <span class="subtitle-2">{{ data.cpu.model }}</span>
+                  </v-card-title>
+                  <v-card-text class="px-0 pt-2">
+                    <v-layout row wrap justify-space-between>
+                      <v-flex xs12 text-center>
+                        <span class="subtitle-2">Usage</span><br>
+                        <h3 class="display-3">
+                          {{ data.cpu.usage_percentage }}
+                        </h3>
+                        <span class="subtitle-2">Percentage</span>
+                      </v-flex>
+
+                      <v-flex xs12 class="pb-0">
+                          <v-sparkline
+                          :value="data.cpu.graph"
+                          :gradient="['#697b91', '#325b8c','#112d4f','#121f30']"
+                          :smooth="10"
+                          :padding="0"
+                          :line-width="3"
+                          :fill="true"
+                          height="40px"
+                          :stroke-linecap="round"
+                          :gradient-direction="bottom"
+                          :type="trend"
+
+                        >
+                      </v-sparkline>
+                      </v-flex>
+
+                      <v-flex xs12 class="pt-0">
+                        <v-divider></v-divider>
+                      </v-flex>
+
+                      <v-flex xs12 md6 class="px-2">
+                        <span class="subtitle-2">Architecture</span><br>
+                        <h1 class="display-1">{{ data.cpu.arch }}</h1>
+                        <span class="subtitle-2">{{data.cpu.core}} core</span>
+                      </v-flex>
+
+                      <v-divider vertical></v-divider>
+
+                      <v-flex xs12 md5 class="px-2">
+                        <span class="subtitle-2">SPEED</span>
+                        <h1 class="display-1">
+                          {{ data.cpu.speed}}
+                        </h1>
+                        <span class="subtitle-2">GHz</span>
+                      </v-flex>
+                    </v-layout>
+                  </v-card-text>
+                </v-card>
+              </v-flex>
+
+              <v-flex xs12 sm12 md6 lg2 text-center>
+                  <v-card dark min-height="300px" class="card_">
+                    <v-card-title class="darkbg">
+                      <h2 class="ble headline"><v-icon class="ble" large>memory</v-icon>MEMORY</h2>
+                      <span class="subtitle-2">{{ data.ram.type}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    </v-card-title>
+                    <v-card-text class="px-0 pt-2">
+                      <v-layout row wrap justify-space-between>
+                        <v-flex xs12 md5 class="px-2">
+                            <span class="subtitle-2">free</span><br>
+                            <h3 color="" class="display-3 green--text">{{ data.ram.free }}</h3>
+                            <span class="subtitle-2">Gigabyte</span>
+                          </v-flex>
+    
+                          <v-divider vertical></v-divider>
+    
+                          <v-flex xs12 md5 class="px-2">
+                            <span class="subtitle-2">usage</span>
+                            <h3 class="display-3 red--text">{{ data.ram.use}}</h3>
+                            <span class="subtitle-2">Gigabyte</span>
+                          </v-flex>
+                          <v-flex xs12 class="pb-0">
+                              <v-sparkline
+                              :value="data.ram.graph"
+                              :gradient="['#697b91', '#325b8c','#112d4f','#121f30']"
+                              :smooth="10"
+                              :padding="0"
+                              :line-width="3"
+                              :fill="true"
+                              height="40px"
+                              :stroke-linecap="round"
+                              :gradient-direction="bottom"
+                              :type="trend"
+    
+                            >
+                          </v-sparkline>
+                          </v-flex>
+    
+                          <v-flex xs12 class="pt-0">
+                            <v-divider></v-divider>
+                          </v-flex>
+
+                        <v-flex xs12>
+                            <span class="subtitle-2">allowcated</span><br>
+                            <h1 class="display-1">
+                                {{ data.ram.total }}
+                            </h1>
+                            <span class="subtitle-2">Gigabyte</span>
+                          </v-flex>                           
+                      </v-layout>
+                    </v-card-text>
+                  </v-card>
+                </v-flex>
+
+                <v-flex xs12 sm12 md6 lg2 text-center>
+                    <v-card dark min-height="300px" class="card_">
+                      <template v-for="i in data.disk">
+                        <v-card-title class="darkbg" v-bind:key="`${i.name}title`">
+                            <h2 class="ble headline"><v-icon large class="ble">folder</v-icon> STORAGE &nbsp;&nbsp;&nbsp;&nbsp;</h2>
+                            <span class="subtitle-2">{{ i.name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                          </v-card-title>
+                          <v-card-text class="pt-2" v-bind:key="`${i.name}text`">
+                            <v-layout row wrap justify-space-between>
+                                <v-flex xs5>
+                                    <span class="subtitle-2">used</span><br>
+                                    <span class="subtitle-2">{{i.used}} GB</span>
+                                  </v-flex>
+                                    <v-divider vertical></v-divider>
+                                    <v-flex xs5>
+                                      <span class="subtitle-2">free</span><br>
+                                      <span class="subtitle-2">{{i.free}} GB</span>
+                                    </v-flex>
+                                    <v-flex xs12>
+                                        <v-progress-linear
+                                        v-model="i.used_p"
+                                        color="#6991bd"
+                                        height="25"
+                                        reactive
+                                      ></v-progress-linear>
+                                    </v-flex>
+                            </v-layout>
+                          </v-card-text>
+                        </template>
+                    </v-card>
+                  </v-flex>
+
+                <v-flex xs12 sm12 md6 lg2 text-center>
+                      <v-card dark min-height="300px" class="card_">
+                        <template v-for="i in data.net">
+                          <v-card-title class="darkbg" v-bind:key="`${i.name}title`">
+                              <h2 class="ble headline"><v-icon large class="ble">public</v-icon> NETWORK &nbsp;&nbsp;&nbsp;&nbsp;</h2>
+                              <span class="subtitle-2">{{i.name}}</span>
+                            </v-card-title>
+                            <v-card-text class="pt-2" v-bind:key="`${i.name}text`">
+                              <v-layout row wrap justify-space-between>
+                                <v-flex xs5>
+                                  <span class="subtitle-2">recieved</span><br>
+                                    <h1 class="display-1 green--text">
+                                        {{i.recieved}}
+                                    </h1>
+                                    <span class="subtitle-2">gigabyte</span>
+                                </v-flex>
+                                  <v-divider vertical></v-divider>
+                                  <v-flex xs5>
+                                    <span class="subtitle-2">sent</span><br>
+                                      <h1 class="display-1 red--text">
+                                          {{i.sent}}
+                                      </h1>
+                                      <span class="subtitle-2">gigabyte</span>
+                                  </v-flex>
+    
+                              </v-layout>
+                            </v-card-text>
+                          </template>
+                        </v-card-text>
+                      </v-card>
+                </v-flex>
+
+                  
+
+
+ 
+            </v-layout>
+
+          </v-container>
+        </v-container>
+        <!-- end widget -->
+      </v-content>
+      <!-- end content -->
+    </v-img>
+    </v-app>
+    
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script>
+    new Vue({
+      el: "#app",
+      vuetify: new Vuetify(),
+      data() {
+        return {
+          name: 'NINEARCH',
+          rendered: false,
+          menu: false,
+          round: "round",
+          bottom: "top",
+          trend: "trend",
+          wid: window.innerWidth,
+          hid: window.innerHeight,
+          data: [],
+          date_: new Date(),
+          time_: null
+        };
+      },
+      mounted() {
+        this.getmon();
+        vm = this
+        setInterval(function(){ vm.gettime(); }, 1000);
+        setInterval(function(){ vm.getmon(); }, 10000);
+      },
+      methods: {
+        gettime(){
+          this.date_ = new Date()
+          this.time_ = 
+          ((this.date_.getHours()>9)? this.date_.getHours() : '0'+this.date_.getHours())
+          +":"+
+          ((this.date_.getMinutes()>9)? this.date_.getMinutes() : '0'+this.date_.getMinutes())
+          +":"+
+          ((this.date_.getSeconds()>9)? this.date_.getSeconds() : '0'+this.date_.getSeconds())
+        },
+        getmon() {
+          var vm = this;
+          $.ajax({
+            url: "getmon.php",
+            type: "get",
+            dataType: "json",
+            success: function (response) {
+              vm.data = response;
+              vm.rendered = true
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+              console.log(textStatus, errorThrown);
+            }
+          });
+        }
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+html {
+    font-family: 'Amatic SC', cursive !important;
+}
+.menu_ {
+  background: rgba(0, 3, 5, 1);
+  background: -moz-linear-gradient(top,
+      rgba(0, 3, 5, 1) 0%,
+      rgba(0, 3, 5, 1) 31%,
+      rgba(66, 66, 66, 1) 100%);
+  background: -webkit-gradient(left top,
+      left bottom,
+      color-stop(0%, rgba(0, 3, 5, 1)),
+      color-stop(31%, rgba(0, 3, 5, 1)),
+      color-stop(100%, rgba(66, 66, 66, 1)));
+  background: -webkit-linear-gradient(top,
+      rgba(0, 3, 5, 1) 0%,
+      rgba(0, 3, 5, 1) 31%,
+      rgba(66, 66, 66, 1) 100%);
+  background: -o-linear-gradient(top,
+      rgba(0, 3, 5, 1) 0%,
+      rgba(0, 3, 5, 1) 31%,
+      rgba(66, 66, 66, 1) 100%);
+  background: -ms-linear-gradient(top,
+      rgba(0, 3, 5, 1) 0%,
+      rgba(0, 3, 5, 1) 31%,
+      rgba(66, 66, 66, 1) 100%);
+  background: linear-gradient(to bottom,
+      rgba(0, 3, 5, 1) 0%,
+      rgba(0, 3, 5, 1) 31%,
+      rgba(66, 66, 66, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000305', endColorstr='#424242', GradientType=0);
+}
+
+.btn_ {
+  background: rgba(173, 206, 250, 1);
+  background: -moz-linear-gradient(left,
+      rgba(173, 206, 250, 1) 0%,
+      rgba(43, 145, 251, 1) 75%,
+      rgba(0, 121, 250, 1) 100%);
+  background: -webkit-gradient(left top,
+      right top,
+      color-stop(0%, rgba(173, 206, 250, 1)),
+      color-stop(75%, rgba(43, 145, 251, 1)),
+      color-stop(100%, rgba(0, 121, 250, 1)));
+  background: -webkit-linear-gradient(left,
+      rgba(173, 206, 250, 1) 0%,
+      rgba(43, 145, 251, 1) 75%,
+      rgba(0, 121, 250, 1) 100%);
+  background: -o-linear-gradient(left,
+      rgba(173, 206, 250, 1) 0%,
+      rgba(43, 145, 251, 1) 75%,
+      rgba(0, 121, 250, 1) 100%);
+  background: -ms-linear-gradient(left,
+      rgba(173, 206, 250, 1) 0%,
+      rgba(43, 145, 251, 1) 75%,
+      rgba(0, 121, 250, 1) 100%);
+  background: linear-gradient(to right,
+      rgba(173, 206, 250, 1) 0%,
+      rgba(43, 145, 251, 1) 75%,
+      rgba(0, 121, 250, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#add8ff', endColorstr='#0079fa', GradientType=1);
+  border-radius: 3px;
+}
+h1,h2 {
+    color: rgb(105, 145, 189);
+}
+.ble {
+    color: rgb(105, 145, 189)!important;
+    caret-color: rgb(105, 145, 189)!important;
+}
+.display-3 {
+    color: rgb(105, 145, 189);
+}
+
+a {
+  text-decoration: none;
+  color: #bbb9b7;
+}
+
+span {
+  color: #2e4969;
+  width: 210px;
+  text-transform: uppercase;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+}
+
+.st {
+  padding-top: 65px !important;
+}
+
+body {
+  overflow-y: hidden !important;
+}
+
+.card_ {
+  background: rgba(0, 0, 0, 1);
+  background: -moz-linear-gradient(top,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 3, 5, 1) 10%,
+      rgba(18, 31, 48, 1) 100%);
+  background: -webkit-gradient(left top,
+      left bottom,
+      color-stop(0%, rgba(0, 0, 0, 1)),
+      color-stop(10%, rgba(0, 3, 5, 1)),
+      color-stop(100%, rgba(18, 31, 48, 1)));
+  background: -webkit-linear-gradient(top,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 3, 5, 1) 10%,
+      rgba(18, 31, 48, 1) 100%);
+  background: -o-linear-gradient(top,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 3, 5, 1) 10%,
+      rgba(18, 31, 48, 1) 100%);
+  background: -ms-linear-gradient(top,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 3, 5, 1) 10%,
+      rgba(18, 31, 48, 1) 100%);
+  background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 3, 5, 1) 10%,
+      rgba(18, 31, 48, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#121f30', GradientType=0);
+}
+
+.darkbg {
+  background: rgba(255, 255, 255, 0.1);
+  background: -moz-linear-gradient(left,
+      rgba(11, 20, 33, 1) 0%,
+      rgba(11, 33, 56, 1) 100%);
+  background: -webkit-gradient(left top,
+      right top,
+      color-stop(0%, rgba(11, 20, 33, 1)),
+      color-stop(100%, rgba(11, 33, 56, 1)));
+  background: -webkit-linear-gradient(left,
+      rgba(11, 20, 33, 1) 0%,
+      rgba(11, 33, 56, 1) 100%);
+  background: -o-linear-gradient(left,
+      rgba(11, 20, 33, 1) 0%,
+      rgba(11, 33, 56, 1) 100%);
+  background: -ms-linear-gradient(left,
+      rgba(11, 20, 33, 1) 0%,
+      rgba(11, 33, 56, 1) 100%);
+  background: linear-gradient(to right,
+      rgba(11, 20, 33, 1) 0%,
+      rgba(11, 33, 56, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0b1421', endColorstr='#0b2138', GradientType=1);
+  border-radius: 0px;
+}
+
+.bg {
+  background: rgba(27, 37, 48, 1);
+  background: -moz-linear-gradient(left,
+      rgba(27, 37, 48, 1) 3%,
+      rgba(23, 34, 47, 1) 25%,
+      rgba(16, 29, 46, 1) 58%,
+      rgba(23, 40, 61, 1) 91%,
+      rgba(25, 43, 65, 1) 100%);
+  background: -webkit-gradient(left top,
+      right top,
+      color-stop(3%, rgba(27, 37, 48, 1)),
+      color-stop(25%, rgba(23, 34, 47, 1)),
+      color-stop(58%, rgba(16, 29, 46, 1)),
+      color-stop(91%, rgba(23, 40, 61, 1)),
+      color-stop(100%, rgba(25, 43, 65, 1)));
+  background: -webkit-linear-gradient(left,
+      rgba(27, 37, 48, 1) 3%,
+      rgba(23, 34, 47, 1) 25%,
+      rgba(16, 29, 46, 1) 58%,
+      rgba(23, 40, 61, 1) 91%,
+      rgba(25, 43, 65, 1) 100%);
+  background: -o-linear-gradient(left,
+      rgba(27, 37, 48, 1) 3%,
+      rgba(23, 34, 47, 1) 25%,
+      rgba(16, 29, 46, 1) 58%,
+      rgba(23, 40, 61, 1) 91%,
+      rgba(25, 43, 65, 1) 100%);
+  background: -ms-linear-gradient(left,
+      rgba(27, 37, 48, 1) 3%,
+      rgba(23, 34, 47, 1) 25%,
+      rgba(16, 29, 46, 1) 58%,
+      rgba(23, 40, 61, 1) 91%,
+      rgba(25, 43, 65, 1) 100%);
+  background: linear-gradient(to right,
+      rgba(27, 37, 48, 1) 3%,
+      rgba(23, 34, 47, 1) 25%,
+      rgba(16, 29, 46, 1) 58%,
+      rgba(23, 40, 61, 1) 91%,
+      rgba(25, 43, 65, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1b2530', endColorstr='#192b41', GradientType=1);
+  min-height: 95vh !important;
+}
+
+.nobg {
+  background-color: rgba(255, 255, 255, 0) !important;
+}
+
+.nooverlay {
+    overflow-y: hidden !important;
+}
